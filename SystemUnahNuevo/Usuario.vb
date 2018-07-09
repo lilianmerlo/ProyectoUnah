@@ -10,6 +10,8 @@
         'TODO: esta línea de código carga datos en la tabla 'UnahsistemDataSet.usuarios' Puede moverla o quitarla según sea necesario.
         Me.UsuariosTableAdapter.Fill(Me.UnahsistemDataSet.usuarios)
         Me.UsuariosBindingSource.AddNew()
+
+        Fecha_usuarioLabel1.Text = DateTime.Now.ToString("dd/MM/yyyy")
         MinimizeBox = False
 
     End Sub
@@ -17,7 +19,9 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
 
-        MessageBox.Show("datos ingresados", "Registro de participante", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+
+        MessageBox.Show("datos ingresados", "Registro de usuario", MessageBoxButtons.OK, MessageBoxIcon.Information)
         limpiar()
 
     End Sub
@@ -72,7 +76,7 @@
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
         Try
             If ComboBox1.Text = "Codigo" Then
-                Me.UsuariosTableAdapter.Buscarcodigo(Me.UnahsistemDataSet.usuarios, Me.TextBox1.Text)
+                Me.UsuariosTableAdapter.buscarporcodigo(Me.UnahsistemDataSet.usuarios, Me.TextBox1.Text)
 
             Else
                 If Me.ValidateChildren And Clave_usuarioTextBox.Text <> String.Empty Then
@@ -81,7 +85,7 @@
 
             If ComboBox1.Text = "Nombre" Then
                 Me.UsuariosTableAdapter.Fill(Me.UnahsistemDataSet.usuarios)
-                Me.UsuariosTableAdapter.Buscarpornombre(Me.UnahsistemDataSet.usuarios, Me.TextBox1.Text)
+                Me.UsuariosTableAdapter.Buscapornombre(Me.UnahsistemDataSet.usuarios, Me.TextBox1.Text)
 
             Else
                 If Me.ValidateChildren And Clave_usuarioTextBox.Text <> String.Empty Then
@@ -97,4 +101,20 @@
         UsuariosTableAdapter.Fill(UnahsistemDataSet.usuarios)
         TextBox1.Text = ""
     End Sub
+
+    Private Sub Fecha_usuarioLabel_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub Fecha_usuarioLabel1_Click(sender As Object, e As EventArgs) Handles Fecha_usuarioLabel1.Click
+        Fecha_usuarioLabel1.Text = DateTime.Now.ToString("dd/MM/yyy")
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Me.Validate()
+        Me.UsuariosBindingSource.EndEdit()
+        Me.TableAdapterManager.UpdateAll(Me.UnahsistemDataSet)
+    End Sub
+
+
 End Class

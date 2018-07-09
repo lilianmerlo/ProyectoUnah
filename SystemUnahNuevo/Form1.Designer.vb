@@ -38,6 +38,7 @@ Partial Class Form1
         '
         Me.Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), System.Drawing.Image)
         Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button2.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.Button2.Location = New System.Drawing.Point(246, 271)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(110, 51)
@@ -113,8 +114,10 @@ Partial Class Form1
         '
         'Form1
         '
+        Me.AcceptButton = Me.Button1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.CancelButton = Me.Button2
         Me.ClientSize = New System.Drawing.Size(441, 387)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label3)

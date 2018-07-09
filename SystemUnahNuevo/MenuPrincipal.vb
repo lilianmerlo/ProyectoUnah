@@ -10,6 +10,7 @@
 
 
 
+
     End Sub
     Dim resultado As MsgBoxResult
     Private Sub MenuPrincipal_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
@@ -20,6 +21,8 @@
         Else
             e.Cancel = False
         End If
+
+
 
     End Sub
 
@@ -34,4 +37,6 @@
 
         My.Forms.Participantes.Show()
     End Sub
+
+
 End Class
